@@ -1,0 +1,719 @@
+/* ============================
+   GLOBAL VARIABLES
+   ============================ */
+:root {
+    --deep-navy-blue: #07152d;
+    --royal-blue: #123d73;
+    --mid-blue: #1f5f94;
+    --bright-sky-blue: #67b8ff;
+
+    --champagne-gold: #f6edd2;
+    --rich-gold: #caa24c;
+    --dark-gold: #8b6822;
+
+    --off-white: #faf9f6;
+    --warm-white: #f3f0e8;
+
+    --soft-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    --premium-shadow: 0 12px 35px rgba(0,0,0,0.35);
+}
+
+/* ============================
+   BASE
+   ============================ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--off-white);
+    color: #444;
+}
+
+/* ============================
+   TOP BAR
+   ============================ */
+.top-bar {
+    position: relative;
+    z-index: 9999;
+    width: 100%;
+    background: rgba(7, 21, 45, 0.80);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.top-bar-inner {
+    max-width: 1200px;
+    min-height: 36px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-bar-phone {
+    color: var(--warm-white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+}
+
+.top-bar-phone span {
+    color: var(--rich-gold);
+}
+
+.top-bar-message {
+    color: var(--champagne-gold);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.top-bar-social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+}
+
+.top-bar-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: var(--warm-white);
+    border-radius: 50%;
+    transition: all .25s ease;
+}
+
+.top-bar-social a:hover {
+    color: var(--rich-gold);
+    background: rgba(202,162,76,.12);
+    transform: translateY(-2px);
+}
+
+/* ============================
+   HERO
+   ============================ */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center -60px;
+    filter: brightness(0.85) contrast(1.1);
+}
+
+/* ============================
+   CURVES
+   ============================ */
+.custom-shape-divider-bottom-1783816300,
+.custom-shape-divider-bottom-1783792806 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1783816300 svg,
+.custom-shape-divider-bottom-1783792806 svg {
+    width: calc(100% + 1.3px);
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1783816300 svg {
+    height: 401px;
+}
+
+.custom-shape-divider-bottom-1783792806 svg {
+    height: 320px;
+}
+
+.custom-shape-divider-bottom-1783816300 .shape-fill {
+    fill: var(--off-white);
+}
+
+.custom-shape-divider-bottom-1783792806 .shape-fill {
+    fill: var(--deep-navy-blue);
+}
+
+/* ============================
+   CLOUD STICKER (DESKTOP ONLY)
+   ============================ */
+.cloud-sticker {
+    position: absolute;
+    top: 250px;
+    right: 60px;
+    transform: rotate(10deg);
+    padding: 1.4rem 2.4rem;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    z-index: 999;
+    color: #1A1A1A;
+
+    background: linear-gradient(
+        135deg,
+        var(--champagne-gold),
+        #f2d98a 20%,
+        #e8c86a 40%,
+        var(--rich-gold) 60%,
+        #b88a2a 80%,
+        var(--dark-gold)
+    );
+
+    clip-path: ellipse(60% 45% at 50% 50%);
+    border-radius: 50%;
+    overflow: hidden; /* Keeps shine inside sticker */
+    box-shadow: var(--premium-shadow), 0 0 12px rgba(255,215,0,.35);
+}
+
+.cloud-sticker::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 80%;
+    height: 200%;
+    pointer-events: none;
+
+    background: linear-gradient(
+        75deg,
+        transparent 0%,
+        rgba(255,255,255,0.15) 35%,
+        rgba(255,255,255,0.85) 50%,
+        rgba(255,255,255,0.15) 65%,
+        transparent 100%
+    );
+
+    transform: rotate(25deg);
+    animation: goldShine 3s ease-in-out infinite;
+}
+
+@keyframes goldShine {
+    0% {
+        transform: translateX(0) rotate(25deg);
+    }
+    100% {
+        transform: translateX(350%) rotate(25deg);
+    }
+}
+
+/* ============================
+   SERVICES
+   ============================ */
+.services {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--deep-navy-blue);
+}
+
+.services h2 {
+    color: var(--champagne-gold);
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1.4rem;
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+}
+
+.service-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 40px;
+    padding: 12px 18px;
+    color: var(--off-white);
+    font-weight: 600;
+    letter-spacing: .3px;
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at top left, rgba(103,184,255,.12), transparent 45%),
+        linear-gradient(135deg, rgba(31,95,148,.28), rgba(7,21,45,.82));
+    border: 1px solid rgba(246,237,210,.18);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 22px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
+    overflow: hidden;
+    transition: all .3s ease;
+    justify-content: center;
+}
+
+.service-card::before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:16px;
+    right:16px;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(246,237,210,.8), transparent);
+}
+
+.service-card::after {
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:40%;
+    height:100%;
+    background:linear-gradient(110deg, transparent, rgba(255,255,255,.08), transparent);
+    transform:skewX(-25deg);
+    transition:left .7s ease;
+}
+
+.service-card:hover {
+    transform:translateY(-4px);
+    border-color:rgba(202,162,76,.55);
+    box-shadow:0 14px 30px rgba(0,0,0,.35), 0 0 12px rgba(202,162,76,.08), inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.service-card:hover::after {
+    left:150%;
+}
+
+.service-icon-left {
+    height: 60px;
+    object-fit: contain;
+    margin-left: -10px;
+}
+
+/* ============================
+   BEFORE & AFTER
+   ============================ */
+.before-after {
+    background: linear-gradient(rgba(255,255,255,.55), rgba(255,255,255,.55)),
+                url("images/splash1.jpg") center/cover no-repeat;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.custom-shape-divider-top-1783849557,
+.custom-shape-divider-top-1783816684 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1783849557 svg {
+    width: calc(100% + 1.3px);
+    height: 407px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1783849557 .shape-fill {
+    fill: var(--off-white);
+}
+
+.custom-shape-divider-top-1783816684 svg {
+    width: calc(100% + 1.3px);
+    height: 401px;
+    transform: rotateY(180deg);
+    z-index: -1;
+}
+
+.custom-shape-divider-top-1783816684 .shape-fill {
+    fill: var(--deep-navy-blue);
+}
+
+.before-after h2,
+.before-after p {
+    color: var(--champagne-gold);
+    position: relative;
+    z-index: 2;
+}
+
+.ba-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+    justify-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.box-pair {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    width: 700px;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: var(--soft-shadow);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box-pair img {
+    max-width: 40%;
+    border-radius: 4px;
+    box-shadow: var(--soft-shadow);
+}
+
+.ba-set:last-child {
+    grid-column: 1 / -1; /* forces it to span full width */
+    justify-self: center;
+}
+
+/* ============================
+   WHY
+   ============================ */
+.why {
+    padding: 3rem 2rem;
+    background: var(--off-white);
+}
+
+.why ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.discount {
+    margin-top: 1rem;
+    background: var(--champagne-gold);
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: var(--soft-shadow);
+}
+
+/* ============================
+   CONTACT
+   ============================ */
+.contact {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--deep-navy-blue);
+    color: var(--champagne-gold);
+}
+
+.contact a {
+    color: var(--champagne-gold);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    color: var(--rich-gold);
+    text-decoration: underline;
+}
+
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+    background: var(--deep-navy-blue);
+    color: var(--off-white);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+/* ============================
+   MOBILE BANNER (DESKTOP HIDDEN)
+   ============================ */
+.mobile-banner {
+    display: none;
+}
+
+/* ============================
+   MOBILE OPTIMIZATION (MERGED)
+   ============================ */
+@media (max-width: 768px) {
+
+    /* TOP BAR */
+    .top-bar-inner {
+        grid-template-columns: 1fr auto;
+        padding: 0 18px;
+    }
+    .top-bar-message {
+        display: none;
+    }
+    .top-bar-phone {
+        font-size: 12px;
+    }
+
+    /* HERO — flush under top bar */
+    .hero {
+        height: 160px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: top;
+        background: var(--deep-navy-blue);
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+
+    /* Remove curves */
+    .custom-shape-divider-bottom-1783816300,
+    .custom-shape-divider-bottom-1783792806 {
+        display: none;
+    }
+
+    /* Remove cloud sticker */
+    .cloud-sticker {
+        display: none;
+    }
+
+    /* Divider under hero */
+    .mobile-divider {
+        display: block;
+        height: 12px;
+        background: var(--deep-navy-blue);
+        width: 100%;
+    }
+
+    /* Mobile banner */
+    .mobile-banner {
+        display: block;
+        background: linear-gradient(
+            135deg,
+            var(--champagne-gold),
+            #f2d98a 20%,
+            #e8c86a 40%,
+            var(--rich-gold) 60%,
+            #b88a2a 80%,
+            var(--dark-gold)
+        );
+        color: #1A1A1A;
+        text-align: center;
+        font-weight: 900;
+        font-size: 1.1rem;
+        padding: 1rem 1.4rem;
+        margin-top: 0;
+        box-shadow: var(--premium-shadow);
+    }
+
+    /* SERVICES GRID */
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .service-card {
+        height: auto;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        justify-content: center;
+    }
+    .service-icon-left {
+        height: 40px;
+        margin-left: 0;
+    }
+
+    /* BEFORE & AFTER — side-by-side */
+    .ba-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .box-pair {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+        box-sizing: border-box;
+    }
+    .box-pair img {
+        width: 48%;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* WHY */
+    .why ul {
+        font-size: 1rem;
+    }
+
+    /* CONTACT */
+    .contact {
+        padding: 2rem 1rem;
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero img {
+        object-fit: cover;        /* fills hero fully */
+        object-position: center -40px; /* move image upward */
+        background: var(--deep-navy-blue);
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-divider {
+        display: block;
+        height: 12px;
+        background: var(--deep-navy-blue);
+        width: 100%;
+        margin-top: -30px; /* pulls divider upward to cover white bar */
+    }
+}
+
+/* ============================
+   TIKTOK FEED — GO GLEAM THEME
+   ============================ */
+.tiktok-feed {
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(7,21,45,0.85),
+            rgba(7,21,45,0.85)
+        ),
+        url("images/backgroundlogo.png") center/cover no-repeat;
+}
+
+
+/* Title */
+.tiktok-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--champagne-gold); /* Gold highlight like top bar */
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+/* Wrapper */
+.tiktok-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TikTok embed container styled like your service cards */
+.tiktok-wrapper blockquote {
+    background: rgba(255,255,255,0.12); /* Frosted glass */
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: var(--soft-shadow);
+    border: 1px solid rgba(246,237,210,0.25); /* Gold tint */
+}
+
+.tiktok-feed::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+}
+/* Frosted background behind TikTok section */
+.tiktok-feed::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.06); /* very subtle frost */
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content stays above the frost */
+.tiktok-feed > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================
+   WHY CHOOSE GO GLEAM BOX (LEFT + OVERLAP)
+   ============================ */
+
+.why-box {
+    position: absolute;
+    bottom: -40px; /* overlaps into services */
+    left: 20px;    /* sits on the left */
+    z-index: 999;
+
+    width: 260px;  /* half-width */
+    padding: 1.4rem 1.6rem;
+    text-align: left;
+
+    /* SAME BACKGROUND STYLE AS SERVICE CARDS */
+    background:
+        radial-gradient(circle at top left, rgba(103,184,255,.12), transparent 45%),
+        linear-gradient(135deg, rgba(31,95,148,.28), rgba(7,21,45,.82));
+
+    border-radius: 16px;
+
+    /* SAME BORDER + FROSTED EFFECT */
+    border: 1px solid rgba(246,237,210,.18);
+    backdrop-filter: blur(12px);
+
+    /* SAME SHADOW */
+    box-shadow: 0 8px 22px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
+
+    color: var(--off-white);
+}
+
+/* Shine line (same as service cards) */
+.why-box::before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:16px;
+    right:16px;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(246,237,210,.8), transparent);
+}
+
+.why-box h3 {
+    margin: 0 0 0.8rem 0;
+    font-size: 1.2rem;
+    color: var(--champagne-gold);
+    letter-spacing: 0.5px;
+}
+
+.why-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}

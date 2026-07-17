@@ -14,8 +14,8 @@
     --off-white: #faf9f6;
     --warm-white: #f3f0e8;
 
-    --soft-shadow: 0 8px 28px rgba(0,0,0,0.25);
-    --premium-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    --soft-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    --premium-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
 }
 
 /* ============================
@@ -37,7 +37,7 @@ body {
     width: 100%;
     background: rgba(7, 21, 45, 0.80);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .top-bar-inner {
@@ -93,7 +93,7 @@ body {
 
 .top-bar-social a:hover {
     color: var(--rich-gold);
-    background: rgba(202,162,76,.12);
+    background: rgba(202, 162, 76, .12);
     transform: translateY(-2px);
 }
 
@@ -133,11 +133,11 @@ body {
 }
 
 .custom-shape-divider-bottom-1783816300 svg {
-    height: 401px;
+    height: clamp(180px, 33vw, 401px);
 }
 
 .custom-shape-divider-bottom-1783792806 svg {
-    height: 320px;
+    height: clamp(140px, 27vw, 320px);
 }
 
 .custom-shape-divider-bottom-1783816300 .shape-fill {
@@ -161,7 +161,7 @@ body {
     font-weight: 900;
     text-align: center;
     z-index: 999;
-    color: #1A1A1A;
+    color: #1a1a1a;
 
     background: linear-gradient(
         135deg,
@@ -176,7 +176,7 @@ body {
     clip-path: ellipse(60% 45% at 50% 50%);
     border-radius: 50%;
     overflow: hidden; /* Keeps shine inside sticker */
-    box-shadow: var(--premium-shadow), 0 0 12px rgba(255,215,0,.35);
+    box-shadow: var(--premium-shadow), 0 0 12px rgba(255, 215, 0, .35);
 }
 
 .cloud-sticker::after {
@@ -191,9 +191,9 @@ body {
     background: linear-gradient(
         75deg,
         transparent 0%,
-        rgba(255,255,255,0.15) 35%,
-        rgba(255,255,255,0.85) 50%,
-        rgba(255,255,255,0.15) 65%,
+        rgba(255, 255, 255, 0.15) 35%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.15) 65%,
         transparent 100%
     );
 
@@ -237,6 +237,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 14px;
     height: 40px;
     padding: 12px 18px;
@@ -245,46 +246,45 @@ body {
     letter-spacing: .3px;
     border-radius: 16px;
     background:
-        radial-gradient(circle at top left, rgba(103,184,255,.12), transparent 45%),
-        linear-gradient(135deg, rgba(31,95,148,.28), rgba(7,21,45,.82));
-    border: 1px solid rgba(246,237,210,.18);
+        radial-gradient(circle at top left, rgba(103, 184, 255, .12), transparent 45%),
+        linear-gradient(135deg, rgba(31, 95, 148, .28), rgba(7, 21, 45, .82));
+    border: 1px solid rgba(246, 237, 210, .18);
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 22px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .08);
     overflow: hidden;
     transition: all .3s ease;
-    justify-content: center;
 }
 
 .service-card::before {
-    content:"";
-    position:absolute;
-    top:0;
-    left:16px;
-    right:16px;
-    height:1px;
-    background:linear-gradient(90deg, transparent, rgba(246,237,210,.8), transparent);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
 }
 
 .service-card::after {
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:40%;
-    height:100%;
-    background:linear-gradient(110deg, transparent, rgba(255,255,255,.08), transparent);
-    transform:skewX(-25deg);
-    transition:left .7s ease;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(110deg, transparent, rgba(255, 255, 255, .08), transparent);
+    transform: skewX(-25deg);
+    transition: left .7s ease;
 }
 
 .service-card:hover {
-    transform:translateY(-4px);
-    border-color:rgba(202,162,76,.55);
-    box-shadow:0 14px 30px rgba(0,0,0,.35), 0 0 12px rgba(202,162,76,.08), inset 0 1px 0 rgba(255,255,255,.12);
+    transform: translateY(-4px);
+    border-color: rgba(202, 162, 76, .55);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .35), 0 0 12px rgba(202, 162, 76, .08), inset 0 1px 0 rgba(255, 255, 255, .12);
 }
 
 .service-card:hover::after {
-    left:150%;
+    left: 150%;
 }
 
 .service-icon-left {
@@ -297,7 +297,7 @@ body {
    BEFORE & AFTER
    ============================ */
 .before-after {
-    background: linear-gradient(rgba(255,255,255,.55), rgba(255,255,255,.55)),
+    background: linear-gradient(rgba(255, 255, 255, .55), rgba(255, 255, 255, .55)),
                 url("images/splash1.jpg") center/cover no-repeat;
     padding: 3rem 2rem;
     text-align: center;
@@ -316,7 +316,7 @@ body {
 
 .custom-shape-divider-top-1783849557 svg {
     width: calc(100% + 1.3px);
-    height: 407px;
+    height: clamp(180px, 34vw, 407px);
     transform: rotateY(180deg);
 }
 
@@ -326,7 +326,7 @@ body {
 
 .custom-shape-divider-top-1783816684 svg {
     width: calc(100% + 1.3px);
-    height: 401px;
+    height: clamp(180px, 33vw, 401px);
     transform: rotateY(180deg);
     z-index: -1;
 }
@@ -353,11 +353,11 @@ body {
 }
 
 .box-pair {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(12px);
     width: auto;
-    height: 400px;        /* forces equal height */
-    object-fit: cover; 
+    height: 400px; /* forces equal height */
+    object-fit: cover;
     max-width: 100%;
     padding: 4px;
     border-radius: 10px;
@@ -376,32 +376,6 @@ body {
 .ba-set:last-child {
     grid-column: 1 / -1; /* forces it to span full width */
     justify-self: center;
-    
-}
-
-/* ============================
-   WHY
-   ============================ */
-.why {
-    padding: 3rem 2rem;
-    background: var(--off-white);
-}
-
-.why ul {
-    list-style: none;
-    padding: 0;
-    font-size: 1.15rem;
-    line-height: 1.6;
-}
-
-.discount {
-    margin-top: 1rem;
-    background: var(--champagne-gold);
-    padding: 1rem;
-    border-radius: 8px;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: var(--soft-shadow);
 }
 
 /* ============================
@@ -425,7 +399,6 @@ body {
     text-decoration: underline;
 }
 
-
 /* ============================
    FOOTER
    ============================ */
@@ -443,6 +416,175 @@ footer {
    ============================ */
 .mobile-banner {
     display: none;
+}
+
+/* ============================
+   TIKTOK FEED — GO GLEAM THEME
+   ============================ */
+.tiktok-feed {
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+
+    background:
+        linear-gradient(rgba(7, 21, 45, 0.85), rgba(7, 21, 45, 0.85)),
+        url("images/backgroundlogo.png") center/cover no-repeat;
+}
+
+.tiktok-feed::before {
+    /* Frosted background behind TikTok section */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.06); /* very subtle frost */
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.tiktok-feed::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+}
+
+.tiktok-feed > * {
+    /* Ensure content stays above the frost */
+    position: relative;
+    z-index: 1;
+}
+
+.tiktok-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tiktok-wrapper blockquote {
+    /* TikTok embed container styled like the service cards */
+    background: rgba(255, 255, 255, 0.12); /* Frosted glass */
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: var(--soft-shadow);
+    border: 1px solid rgba(246, 237, 210, 0.25); /* Gold tint */
+}
+
+/* ============================
+   WHY CHOOSE GO GLEAM BOX (LEFT + OVERLAP)
+   ============================ */
+.why-box {
+    position: absolute;
+    bottom: -40px; /* overlaps into services */
+    left: 20px;    /* sits on the left */
+    z-index: 999;
+
+    width: 260px; /* half-width */
+    padding: 1.4rem 1.6rem;
+    text-align: left;
+
+    /* same background style as service cards */
+    background:
+        radial-gradient(circle at top left, rgba(103, 184, 255, .12), transparent 45%),
+        linear-gradient(135deg, rgba(31, 95, 148, .28), rgba(7, 21, 45, .82));
+
+    border-radius: 16px;
+
+    /* same border + frosted effect */
+    border: 1px solid rgba(246, 237, 210, .18);
+    backdrop-filter: blur(12px);
+
+    /* same shadow */
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .08);
+
+    color: var(--off-white);
+}
+
+.why-box::before {
+    /* Shine line (same as service cards) */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
+}
+
+.why-box h3 {
+    margin: 0 0 0.8rem 0;
+    font-size: 1.2rem;
+    color: var(--champagne-gold);
+    letter-spacing: 0.5px;
+}
+
+.why-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* ============================
+   ABOUT GO GLEAM — NAVY THEME
+   ============================ */
+.about-section {
+    padding: 3rem 2rem;
+    background:
+        radial-gradient(circle at top left, rgba(103, 184, 255, .10), transparent 45%),
+        linear-gradient(135deg, rgba(31, 95, 148, .28), rgba(7, 21, 45, .92)); /* signature navy gradient */
+    color: var(--off-white);
+    position: relative;
+    border-top: 1px solid rgba(246, 237, 210, .18);
+    border-bottom: 1px solid rgba(246, 237, 210, .18);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--soft-shadow);
+
+    /* subtle fade-in animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aboutFadeUp 0.7s ease forwards;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--champagne-gold);
+    letter-spacing: 1px;
+    margin-bottom: 1.4rem;
+    text-align: center;
+}
+
+.about-section p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto 1.4rem auto;
+    color: var(--warm-white);
+}
+
+.about-section::before {
+    /* Gold shine line (matches service cards + why box) */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
+}
+
+@keyframes aboutFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ============================
@@ -472,12 +614,17 @@ footer {
     .hero img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
-        object-position: top;
+        object-fit: cover; /* fills hero fully */
+        object-position: center -40px; /* move image upward */
         background: var(--deep-navy-blue);
         margin: 0;
         padding: 0;
         display: block;
+    }
+
+    /* WHY CHOOSE BOX — hidden on mobile for now */
+    .why-box {
+        display: none;
     }
 
     /* Remove curves */
@@ -491,17 +638,15 @@ footer {
         display: none;
     }
 
-    /* Divider under hero */
+    /* Divider under hero — hidden; the gold banner now covers the white strip itself */
     .mobile-divider {
-        display: block;
-        height: 12px;
-        background: var(--deep-navy-blue);
-        width: 100%;
+        display: none;
     }
 
     /* Mobile banner */
     .mobile-banner {
         display: block;
+        height: 30px;
         background: linear-gradient(
             135deg,
             var(--champagne-gold),
@@ -511,16 +656,23 @@ footer {
             #b88a2a 80%,
             var(--dark-gold)
         );
-        color: #1A1A1A;
+        color: #1a1a1a;
         text-align: center;
         font-weight: 900;
         font-size: 1.1rem;
-        padding: 1rem 1.4rem;
-        margin-top: 0;
-        box-shadow: var(--premium-shadow);
+        margin-top: -70px; /* pulls the banner up to sit flush under the image, covering the white strip baked into it */
+        position: relative;
     }
 
     /* SERVICES GRID */
+    .services {
+        padding-top: 0px;
+        position: relative; /* ensures this section paints above the hero where the banner's negative margin causes overlap */
+        z-index: 1;
+    }
+    .services h2 {
+        margin-top: 0;
+    }
     .service-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -535,6 +687,11 @@ footer {
         height: 40px;
         margin-left: 0;
     }
+    .service-card:last-child {
+        grid-column: 1 / -1;   /* span both columns so it can be centered */
+        justify-self: center;  /* center it within that spanned row */
+        width: calc(50% - 0.5rem); /* matches a single grid column's actual width, accounting for the 1rem gap */
+    }
 
     /* BEFORE & AFTER — side-by-side */
     .ba-container {
@@ -544,24 +701,20 @@ footer {
     .box-pair {
         width: 100%;
         max-width: 100%;
+        height: auto; /* was inheriting the desktop 400px, leaving a huge frosted gap */
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 4px; /* matches desktop frame thickness */
         gap: 10px;
         box-sizing: border-box;
     }
     .box-pair img {
         width: 48%;
         height: auto;
-        border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    /* WHY */
-    .why ul {
-        font-size: 1rem;
+        border-radius: 4px; /* matches desktop */
+        box-shadow: var(--soft-shadow); /* matches desktop */
     }
 
     /* CONTACT */
@@ -574,151 +727,15 @@ footer {
         font-size: 0.9rem;
         padding: 1rem;
     }
-}
 
-@media (max-width: 768px) {
-
-    .hero img {
-        object-fit: cover;        /* fills hero fully */
-        object-position: center -40px; /* move image upward */
-        background: var(--deep-navy-blue);
+    /* ABOUT */
+    .about-section {
+        padding: 2rem 1.4rem;
+    }
+    .about-section h2 {
+        font-size: 1.6rem;
+    }
+    .about-section p {
+        font-size: 1rem;
     }
 }
-
-@media (max-width: 768px) {
-    .mobile-divider {
-        display: block;
-        height: 12px;
-        background: var(--deep-navy-blue);
-        width: 100%;
-        margin-top: -30px; /* pulls divider upward to cover white bar */
-    }
-}
-
-/* ============================
-   TIKTOK FEED — GO GLEAM THEME
-   ============================ */
-.tiktok-feed {
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-
-    background:
-        linear-gradient(
-            rgba(7,21,45,0.85),
-            rgba(7,21,45,0.85)
-        ),
-        url("images/backgroundlogo.png") center/cover no-repeat;
-}
-
-
-/* Title */
-.tiktok-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--champagne-gold); /* Gold highlight like top bar */
-    letter-spacing: 1px;
-    margin-bottom: 2rem;
-}
-
-/* Wrapper */
-.tiktok-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* TikTok embed container styled like your service cards */
-.tiktok-wrapper blockquote {
-    background: rgba(255,255,255,0.12); /* Frosted glass */
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 20px;
-    max-width: 700px;
-    width: 100%;
-    box-shadow: var(--soft-shadow);
-    border: 1px solid rgba(246,237,210,0.25); /* Gold tint */
-}
-
-.tiktok-feed::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(4px);
-    pointer-events: none;
-}
-/* Frosted background behind TikTok section */
-.tiktok-feed::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.06); /* very subtle frost */
-    backdrop-filter: blur(6px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Ensure content stays above the frost */
-.tiktok-feed > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* ============================
-   WHY CHOOSE GO GLEAM BOX (LEFT + OVERLAP)
-   ============================ */
-
-.why-box {
-    position: absolute;
-    bottom: -40px; /* overlaps into services */
-    left: 20px;    /* sits on the left */
-    z-index: 999;
-
-    width: 260px;  /* half-width */
-    padding: 1.4rem 1.6rem;
-    text-align: left;
-
-    /* SAME BACKGROUND STYLE AS SERVICE CARDS */
-    background:
-        radial-gradient(circle at top left, rgba(103,184,255,.12), transparent 45%),
-        linear-gradient(135deg, rgba(31,95,148,.28), rgba(7,21,45,.82));
-
-    border-radius: 16px;
-
-    /* SAME BORDER + FROSTED EFFECT */
-    border: 1px solid rgba(246,237,210,.18);
-    backdrop-filter: blur(12px);
-
-    /* SAME SHADOW */
-    box-shadow: 0 8px 22px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
-
-    color: var(--off-white);
-}
-
-/* Shine line (same as service cards) */
-.why-box::before {
-    content:"";
-    position:absolute;
-    top:0;
-    left:16px;
-    right:16px;
-    height:1px;
-    background:linear-gradient(90deg, transparent, rgba(246,237,210,.8), transparent);
-}
-
-.why-box h3 {
-    margin: 0 0 0.8rem 0;
-    font-size: 1.2rem;
-    color: var(--champagne-gold);
-    letter-spacing: 0.5px;
-}
-
-.why-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-

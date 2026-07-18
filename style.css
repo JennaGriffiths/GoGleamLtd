@@ -241,7 +241,7 @@ body {
 /* Styles the gold promotional sticker. */
 .cloud-sticker {
     position: absolute;
-    top: 220px;
+    top: 180px;
     right: 60px;
     transform: rotate(10deg);
     padding: 1.4rem 2.4rem;
@@ -728,7 +728,7 @@ footer {
     /* ----- Cloud Sticker — same badge as desktop, scaled down for mobile ----- */
     .cloud-sticker {
         display: block;
-        top: 150px;
+        top: 120px;
         right: 12px;
         transform: rotate(10deg) scale(0.35);
         transform-origin: top right;

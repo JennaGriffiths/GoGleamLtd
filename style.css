@@ -1,6 +1,7 @@
 /* ============================
    GLOBAL VARIABLES
    ============================ */
+/* Defines reusable CSS variables (colors, shadows). */
 :root {
     --deep-navy-blue: #07152d;
     --royal-blue: #123d73;
@@ -21,6 +22,7 @@
 /* ============================
    BASE
    ============================ */
+/* Styles the whole page. */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -30,7 +32,9 @@ body {
 
 /* ============================
    TOP BAR
+   (first element on the page)
    ============================ */
+/* Styles the top bar. */
 .top-bar {
     position: relative;
     z-index: 9999;
@@ -40,6 +44,7 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
+/* Styles the top bar. */
 .top-bar-inner {
     max-width: 1200px;
     min-height: 36px;
@@ -51,6 +56,7 @@ body {
     gap: 20px;
 }
 
+/* Styles the top bar. */
 .top-bar-phone {
     color: var(--warm-white);
     text-decoration: none;
@@ -61,10 +67,12 @@ body {
     letter-spacing: 0.03em;
 }
 
+/* Styles the top bar. */
 .top-bar-phone span {
     color: var(--rich-gold);
 }
 
+/* Styles the top bar. */
 .top-bar-message {
     color: var(--champagne-gold);
     font-size: 12px;
@@ -73,6 +81,7 @@ body {
     text-align: center;
 }
 
+/* Styles the top bar. */
 .top-bar-social {
     display: flex;
     justify-content: flex-end;
@@ -80,6 +89,7 @@ body {
     gap: 14px;
 }
 
+/* Styles the top bar. */
 .top-bar-social a {
     display: flex;
     align-items: center;
@@ -91,6 +101,7 @@ body {
     transition: all .25s ease;
 }
 
+/* Styles the top bar. */
 .top-bar-social a:hover {
     color: var(--rich-gold);
     background: rgba(202, 162, 76, .12);
@@ -99,61 +110,138 @@ body {
 
 /* ============================
    HERO
+   (header: logo image, wave curves, why-box)
    ============================ */
+/* Styles the hero section. */
 .hero {
     position: relative;
     width: 100%;
-    height: 360px;
+    height: 300px;
+    overflow: hidden; /* keeps the wave graphic clipped to the hero box, no spillover */
 }
 
+/* Styles the hero section. */
 .hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center -60px;
+    object-position: center 0px;
     filter: brightness(0.85) contrast(1.1);
 }
 
-/* ============================
-   CURVES
-   ============================ */
+/* ----- Hero: wave curves at bottom of hero ----- */
 .custom-shape-divider-bottom-1783816300,
 .custom-shape-divider-bottom-1783792806 {
     position: absolute;
-    bottom: 0;
+    bottom: 0; /* flush with hero bottom edge — closes the white gap above services */
     left: 0;
     width: 100%;
-    line-height: 0;
+    line-height: 0; /* svg is inline by default; this kills the baseline gap under it */
 }
 
 .custom-shape-divider-bottom-1783816300 svg,
+/* Styles decorative wave dividers. */
 .custom-shape-divider-bottom-1783792806 svg {
+    display: block; /* removes the inline baseline gap that was leaving a white strip */
     width: calc(100% + 1.3px);
     transform: rotateY(180deg);
 }
 
+/* Styles decorative wave dividers. */
 .custom-shape-divider-bottom-1783816300 svg {
     height: clamp(180px, 33vw, 401px);
 }
 
+/* Styles decorative wave dividers. */
 .custom-shape-divider-bottom-1783792806 svg {
     height: clamp(140px, 27vw, 320px);
 }
 
+/* Styles decorative wave dividers. */
 .custom-shape-divider-bottom-1783816300 .shape-fill {
     fill: var(--off-white);
 }
 
+/* Styles decorative wave dividers. */
 .custom-shape-divider-bottom-1783792806 .shape-fill {
     fill: var(--deep-navy-blue);
+}
+
+/* ----- Hero: "Why Choose Go Gleam" box (left, overlapping into services) ----- */
+/* Styles the Why Choose Go Gleam box. */
+.why-box {
+    position: absolute;
+    bottom: 150px; /* overlaps into services */
+    left: 50px;    /* sits on the left */
+    z-index: 999;
+
+    width: 260px; /* half-width */
+    padding: 1.4rem 1.6rem;
+    text-align: left;
+
+    /* same background style as service cards */
+    background:
+        radial-gradient(circle at top left, rgba(103, 184, 255, .12), transparent 45%),
+        linear-gradient(135deg, rgba(31, 95, 148, .28), rgba(7, 21, 45, .82));
+
+    border-radius: 16px;
+
+    /* same border + frosted effect */
+    border: 1px solid rgba(246, 237, 210, .18);
+    backdrop-filter: blur(12px);
+
+    /* same shadow */
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .08);
+
+    color: var(--off-white);
+}
+
+/* Styles the Why Choose Go Gleam box. */
+.why-box::before {
+    /* Shine line (same as service cards) */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
+}
+
+/* Styles the Why Choose Go Gleam box. */
+.why-box h3 {
+    margin: 0 0 0.8rem 0;
+    font-size: 1.2rem;
+    color: var(--champagne-gold);
+    letter-spacing: 0.5px;
+}
+
+/* Styles the Why Choose Go Gleam box. */
+.why-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* ============================
+   MOBILE BANNER (DESKTOP HIDDEN)
+   (sits right after the hero in the markup;
+   full mobile styling lives in the media query at the bottom)
+   ============================ */
+/* Styles the mobile banner. */
+.mobile-banner {
+    display: none;
 }
 
 /* ============================
    CLOUD STICKER (DESKTOP ONLY)
    ============================ */
+/* Styles the gold promotional sticker. */
 .cloud-sticker {
     position: absolute;
-    top: 250px;
+    top: 220px;
     right: 60px;
     transform: rotate(10deg);
     padding: 1.4rem 2.4rem;
@@ -179,6 +267,7 @@ body {
     box-shadow: var(--premium-shadow), 0 0 12px rgba(255, 215, 0, .35);
 }
 
+/* Styles the gold promotional sticker. */
 .cloud-sticker::after {
     content: "";
     position: absolute;
@@ -201,6 +290,7 @@ body {
     animation: goldShine 3s ease-in-out infinite;
 }
 
+/* Animates the gold shine effect. */
 @keyframes goldShine {
     0% {
         transform: translateX(0) rotate(25deg);
@@ -213,35 +303,39 @@ body {
 /* ============================
    SERVICES
    ============================ */
+/* Styles the services section. */
 .services {
-    padding: 3rem 2rem;
+    padding: 0.5rem 2rem 1rem;
     text-align: center;
     background: var(--deep-navy-blue);
 }
 
+/* Styles the services section. */
 .services h2 {
     color: var(--champagne-gold);
     font-size: 2rem;
     letter-spacing: 1px;
 }
 
+/* Styles service cards and grid. */
 .service-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 1.4rem;
-    max-width: 1200px;
-    margin: 2.5rem auto 0;
+    gap: 1rem;
+    max-width: 1400px;
+    margin: 1.5rem auto 0;
 }
 
+/* Styles service cards and grid. */
 .service-card {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
-    height: 40px;
+    height: 30px;
     padding: 12px 18px;
-    color: var(--off-white);
+    color: var(--champagne-gold);
     font-weight: 600;
     letter-spacing: .3px;
     border-radius: 16px;
@@ -255,285 +349,10 @@ body {
     transition: all .3s ease;
 }
 
-.service-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 16px;
-    right: 16px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
-}
-
-.service-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(110deg, transparent, rgba(255, 255, 255, .08), transparent);
-    transform: skewX(-25deg);
-    transition: left .7s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(202, 162, 76, .55);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, .35), 0 0 12px rgba(202, 162, 76, .08), inset 0 1px 0 rgba(255, 255, 255, .12);
-}
-
-.service-card:hover::after {
-    left: 150%;
-}
-
-.service-icon-left {
-    height: 60px;
-    object-fit: contain;
-    margin-left: -10px;
-}
-
-/* ============================
-   BEFORE & AFTER
-   ============================ */
-.before-after {
-    background: linear-gradient(rgba(255, 255, 255, .55), rgba(255, 255, 255, .55)),
-                url("images/splash1.jpg") center/cover no-repeat;
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-}
-
-.custom-shape-divider-top-1783849557,
-.custom-shape-divider-top-1783816684 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.custom-shape-divider-top-1783849557 svg {
-    width: calc(100% + 1.3px);
-    height: clamp(180px, 34vw, 407px);
-    transform: rotateY(180deg);
-}
-
-.custom-shape-divider-top-1783849557 .shape-fill {
-    fill: var(--off-white);
-}
-
-.custom-shape-divider-top-1783816684 svg {
-    width: calc(100% + 1.3px);
-    height: clamp(180px, 33vw, 401px);
-    transform: rotateY(180deg);
-    z-index: -1;
-}
-
-.custom-shape-divider-top-1783816684 .shape-fill {
-    fill: var(--deep-navy-blue);
-}
-
-.before-after h2,
-.before-after p {
-    color: var(--champagne-gold);
-    position: relative;
-    z-index: 2;
-}
-
-.ba-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 25px;
-    justify-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-.box-pair {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    width: auto;
-    height: 400px; /* forces equal height */
-    object-fit: cover;
-    max-width: 100%;
-    padding: 4px;
-    border-radius: 10px;
-    box-shadow: var(--soft-shadow);
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.box-pair img {
-    max-width: 49%;
-    border-radius: 4px;
-    box-shadow: var(--soft-shadow);
-}
-
-.ba-set:last-child {
-    grid-column: 1 / -1; /* forces it to span full width */
-    justify-self: center;
-}
-
-/* ============================
-   CONTACT
-   ============================ */
-.contact {
-    padding: 3rem 2rem;
-    text-align: center;
-    background: var(--deep-navy-blue);
-    color: var(--champagne-gold);
-}
-
-.contact a {
-    color: var(--champagne-gold);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.contact a:hover {
-    color: var(--rich-gold);
-    text-decoration: underline;
-}
-
-/* ============================
-   FOOTER
-   ============================ */
-footer {
-    background: var(--deep-navy-blue);
-    color: var(--off-white);
-    text-align: center;
-    padding: 1.5rem;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-}
-
-/* ============================
-   MOBILE BANNER (DESKTOP HIDDEN)
-   ============================ */
-.mobile-banner {
-    display: none;
-}
-
-/* ============================
-   TIKTOK FEED — GO GLEAM THEME
-   ============================ */
-.tiktok-feed {
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-
-    background:
-        linear-gradient(rgba(7, 21, 45, 0.85), rgba(7, 21, 45, 0.85)),
-        url("images/backgroundlogo.png") center/cover no-repeat;
-}
-
-.tiktok-feed::before {
-    /* Frosted background behind TikTok section */
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.06); /* very subtle frost */
-    backdrop-filter: blur(6px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.tiktok-feed::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(4px);
-    pointer-events: none;
-}
-
-.tiktok-feed > * {
-    /* Ensure content stays above the frost */
-    position: relative;
-    z-index: 1;
-}
-
-.tiktok-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.tiktok-wrapper blockquote {
-    /* TikTok embed container styled like the service cards */
-    background: rgba(255, 255, 255, 0.12); /* Frosted glass */
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 20px;
-    max-width: 700px;
-    width: 100%;
-    box-shadow: var(--soft-shadow);
-    border: 1px solid rgba(246, 237, 210, 0.25); /* Gold tint */
-}
-
-/* ============================
-   WHY CHOOSE GO GLEAM BOX (LEFT + OVERLAP)
-   ============================ */
-.why-box {
-    position: absolute;
-    bottom: -40px; /* overlaps into services */
-    left: 20px;    /* sits on the left */
-    z-index: 999;
-
-    width: 260px; /* half-width */
-    padding: 1.4rem 1.6rem;
-    text-align: left;
-
-    /* same background style as service cards */
-    background:
-        radial-gradient(circle at top left, rgba(103, 184, 255, .12), transparent 45%),
-        linear-gradient(135deg, rgba(31, 95, 148, .28), rgba(7, 21, 45, .82));
-
-    border-radius: 16px;
-
-    /* same border + frosted effect */
-    border: 1px solid rgba(246, 237, 210, .18);
-    backdrop-filter: blur(12px);
-
-    /* same shadow */
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .08);
-
-    color: var(--off-white);
-}
-
-.why-box::before {
-    /* Shine line (same as service cards) */
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 16px;
-    right: 16px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
-}
-
-.why-box h3 {
-    margin: 0 0 0.8rem 0;
-    font-size: 1.2rem;
-    color: var(--champagne-gold);
-    letter-spacing: 0.5px;
-}
-
-.why-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
 /* ============================
    ABOUT GO GLEAM — NAVY THEME
    ============================ */
+/* Styles the About section. */
 .about-section {
     padding: 3rem 2rem;
     background:
@@ -552,6 +371,7 @@ footer {
     animation: aboutFadeUp 0.7s ease forwards;
 }
 
+/* Styles the About section. */
 .about-section h2 {
     font-size: 2rem;
     font-weight: 700;
@@ -561,6 +381,7 @@ footer {
     text-align: center;
 }
 
+/* Styles the About section. */
 .about-section p {
     font-size: 1.15rem;
     line-height: 1.7;
@@ -569,6 +390,7 @@ footer {
     color: var(--warm-white);
 }
 
+/* Styles the About section. */
 .about-section::before {
     /* Gold shine line (matches service cards + why box) */
     content: "";
@@ -580,6 +402,7 @@ footer {
     background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
 }
 
+/* Animates the About section. */
 @keyframes aboutFadeUp {
     to {
         opacity: 1;
@@ -588,65 +411,325 @@ footer {
 }
 
 /* ============================
-   MOBILE OPTIMIZATION (MERGED)
+   TIKTOK FEED — GO GLEAM THEME
    ============================ */
+/* Styles the TikTok feed. */
+.tiktok-feed {
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+
+    background:
+        linear-gradient(rgba(7, 21, 45, 0.85), rgba(7, 21, 45, 0.85)),
+        url("images/backgroundlogo.png") center/cover no-repeat;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-feed::before {
+    /* Frosted background behind TikTok section */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.06); /* very subtle frost */
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-feed::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-feed > * {
+    /* Ensure content stays above the frost */
+    position: relative;
+    z-index: 1;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-wrapper blockquote {
+    /* TikTok embed container styled like the service cards */
+    background: rgba(255, 255, 255, 0.12); /* Frosted glass */
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: var(--soft-shadow);
+    border: 1px solid rgba(246, 237, 210, 0.25); /* Gold tint */
+}
+
+/* ============================
+   BEFORE & AFTER
+   ============================ */
+/* Styles the before & after section. */
+.before-after {
+    background: linear-gradient(rgba(255, 255, 255, .55), rgba(255, 255, 255, .55)),
+                url("images/splash1.jpg") center/cover no-repeat;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+/* ----- Before & After: wave curves at top of section ----- */
+.custom-shape-divider-top-1783849557,
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783816684 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783849557 svg {
+    width: calc(100% + 1.3px);
+    height: clamp(180px, 34vw, 407px);
+    transform: rotateY(180deg);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783849557 .shape-fill {
+    fill: var(--off-white);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783816684 svg {
+    width: calc(100% + 1.3px);
+    height: clamp(180px, 33vw, 401px);
+    transform: rotateY(180deg);
+    z-index: -1;
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783816684 .shape-fill {
+    fill: var(--deep-navy-blue);
+}
+
+/* ----- Before & After: heading/text ----- */
+.before-after h2,
+/* Styles the before & after section. */
+.before-after p {
+    color: var(--champagne-gold);
+    position: relative;
+    z-index: 2;
+}
+
+/* ----- Before & After: image pair layout ----- */
+/* Styles before & after layout. */
+.ba-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+    justify-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Styles paired before/after images. */
+.box-pair {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    width: auto;
+    height: 400px; /* forces equal height */
+    object-fit: cover;
+    max-width: 100%;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: var(--soft-shadow);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Styles paired before/after images. */
+.box-pair img {
+    max-width: 49%;
+    border-radius: 4px;
+    box-shadow: var(--soft-shadow);
+}
+
+/* ----- Before & After: small corner banners on each image ----- */
+/* Wraps each before/after image so the corner banner can be positioned over it. */
+.ba-img-wrap {
+    position: relative;
+    max-width: 49%;
+    display: flex;
+    overflow: hidden; /* clips the ribbon corners to the image's rounded edges */
+    border-radius: 4px;
+    box-shadow: var(--soft-shadow);
+}
+
+/* The images inside the wrapper no longer need their own shadow/radius — the wrapper handles it. */
+.ba-img-wrap img {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+}
+
+/* Small diagonal ribbon banner running from the left edge up to the top edge of the image. */
+.ba-corner-banner {
+    position: absolute;
+    top: 14px;
+    left: -32px;
+    width: 110px;
+    padding: 3px 0;
+    text-align: center;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    z-index: 3;
+
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+
+    background: linear-gradient(
+        135deg,
+        var(--champagne-gold),
+        #f2d98a 20%,
+        #e8c86a 40%,
+        var(--rich-gold) 60%,
+        #b88a2a 80%,
+        var(--dark-gold)
+    );
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional dark variant for the "After" banner, for a bit of visual contrast against the gold "Before" banner. */
+.ba-corner-banner.after-banner {
+    background: linear-gradient(135deg, var(--mid-blue), var(--deep-navy-blue));
+    color: var(--champagne-gold);
+}
+
+/* Styles before & after layout. */
+.ba-set:last-child {
+    grid-column: 1 / -1; /* forces it to span full width */
+    justify-self: center;
+}
+
+/* ============================
+   CONTACT
+   ============================ */
+/* Styles the contact section. */
+.contact {
+    padding: 1rem 2rem;
+    text-align: center;
+    background: var(--deep-navy-blue);
+    color: var(--champagne-gold);
+}
+
+/* Styles the contact section. */
+.contact a {
+    color: var(--champagne-gold);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Styles the contact section. */
+.contact a:hover {
+    color: var(--rich-gold);
+    text-decoration: underline;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+/* Styles the footer. */
+footer {
+    background: var(--deep-navy-blue);
+    color: var(--champagne-gold);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   MOBILE OPTIMIZATION (MERGED)
+   All mobile / responsive overrides live in this block,
+   in the same top-to-bottom page order as above.
+   ============================================================ */
+/* Mobile responsive layout changes. */
 @media (max-width: 768px) {
 
-    /* TOP BAR */
+    /* ----- Top Bar ----- */
+/* Styles the top bar. */
     .top-bar-inner {
         grid-template-columns: 1fr auto;
         padding: 0 18px;
     }
+/* Styles the top bar. */
     .top-bar-message {
         display: none;
     }
+/* Styles the top bar. */
     .top-bar-phone {
         font-size: 12px;
     }
 
-    /* HERO — flush under top bar */
+    /* ----- Hero — flush under top bar ----- */
+/* Styles the hero section. */
     .hero {
         height: 160px;
         margin: 0;
         padding: 0;
         overflow: hidden;
     }
+/* Styles the hero section. */
     .hero img {
         width: 100%;
         height: 100%;
         object-fit: cover; /* fills hero fully */
-        object-position: center -40px; /* move image upward */
+        object-position: center -20px; /* move image upward */
         background: var(--deep-navy-blue);
         margin: 0;
         padding: 0;
         display: block;
     }
 
-    /* WHY CHOOSE BOX — hidden on mobile for now */
-    .why-box {
-        display: none;
-    }
-
-    /* Remove curves */
+    /* Remove hero curves */
     .custom-shape-divider-bottom-1783816300,
+/* Styles decorative wave dividers. */
     .custom-shape-divider-bottom-1783792806 {
         display: none;
     }
 
-    /* Remove cloud sticker */
-    .cloud-sticker {
+    /* Hero: Why Choose box — hidden on mobile for now */
+/* Styles the Why Choose Go Gleam box. */
+    .why-box {
         display: none;
     }
 
+    /* ----- Mobile Banner (divider + banner) ----- */
     /* Divider under hero — hidden; the gold banner now covers the white strip itself */
     .mobile-divider {
         display: none;
     }
 
-    /* Mobile banner */
+/* Styles the mobile banner. */
     .mobile-banner {
         display: block;
-        height: 30px;
+        height: 20px;
         background: linear-gradient(
             135deg,
             var(--champagne-gold),
@@ -660,44 +743,77 @@ footer {
         text-align: center;
         font-weight: 900;
         font-size: 1.1rem;
-        margin-top: -70px; /* pulls the banner up to sit flush under the image, covering the white strip baked into it */
+        margin-top: -50px; /* pulls the banner up to sit flush under the image, covering the white strip baked into it */
         position: relative;
     }
 
-    /* SERVICES GRID */
+    /* ----- Cloud Sticker — hidden on mobile ----- */
+/* Styles the gold promotional sticker. */
+    .cloud-sticker {
+        display: none;
+    }
+
+    /* ----- Services ----- */
+/* Styles the services section. */
     .services {
-        padding-top: 0px;
+        margin-top: 0px /* adjust until perfect */
+    }
+/* Styles the services section. */
+    .services {
+        padding-top: 2px;
         position: relative; /* ensures this section paints above the hero where the banner's negative margin causes overlap */
         z-index: 1;
     }
+/* Styles the services section. */
     .services h2 {
-        margin-top: 0;
+        margin-top: 0px;
+        padding-top: 15px;
     }
+/* Styles service cards and grid. */
     .service-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        gap: .5rem;
     }
+/* Styles service cards and grid. */
     .service-card {
         height: auto;
         padding: 10px 14px;
         font-size: 0.9rem;
         justify-content: center;
     }
+/* Styles service cards and grid. */
     .service-icon-left {
         height: 40px;
         margin-left: 0;
     }
+/* Styles service cards and grid. */
     .service-card:last-child {
         grid-column: 1 / -1;   /* span both columns so it can be centered */
         justify-self: center;  /* center it within that spanned row */
         width: calc(50% - 0.5rem); /* matches a single grid column's actual width, accounting for the 1rem gap */
     }
 
-    /* BEFORE & AFTER — side-by-side */
+    /* ----- About ----- */
+/* Styles the About section. */
+    .about-section {
+        padding: 2rem 1.4rem;
+    }
+/* Styles the About section. */
+    .about-section h2 {
+        font-size: 1.6rem;
+    }
+/* Styles the About section. */
+    .about-section p {
+        font-size: 1rem;
+    }
+
+    /* ----- Before & After — side-by-side ----- */
+/* Styles before & after layout. */
     .ba-container {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+/* Styles paired before/after images. */
     .box-pair {
         width: 100%;
         max-width: 100%;
@@ -710,6 +826,7 @@ footer {
         gap: 10px;
         box-sizing: border-box;
     }
+/* Styles paired before/after images. */
     .box-pair img {
         width: 48%;
         height: auto;
@@ -717,25 +834,35 @@ footer {
         box-shadow: var(--soft-shadow); /* matches desktop */
     }
 
-    /* CONTACT */
+/* Styles paired before/after images. */
+    .ba-img-wrap {
+        width: 48%;
+        max-width: 48%;
+    }
+/* Styles paired before/after images. */
+    .ba-img-wrap img {
+        width: 100%;
+        height: auto;
+    }
+/* Small corner banners, scaled down for mobile. */
+    .ba-corner-banner {
+        top: 10px;
+        left: -28px;
+        width: 90px;
+        font-size: 0.55rem;
+        padding: 2px 0;
+    }
+
+    /* ----- Contact ----- */
+/* Styles the contact section. */
     .contact {
         padding: 2rem 1rem;
     }
 
-    /* FOOTER */
+    /* ----- Footer ----- */
+/* Styles the footer. */
     footer {
         font-size: 0.9rem;
         padding: 1rem;
-    }
-
-    /* ABOUT */
-    .about-section {
-        padding: 2rem 1.4rem;
-    }
-    .about-section h2 {
-        font-size: 1.6rem;
-    }
-    .about-section p {
-        font-size: 1rem;
     }
 }

@@ -419,12 +419,13 @@ body {
     text-align: center;
     position: relative;
 
-    background:
-        linear-gradient(rgba(7, 21, 45, 0.85), rgba(7, 21, 45, 0.85)),
-        url("images/backgroundlogo.png") center/cover no-repeat;
+    background-color: var(--deep-navy-blue);
+    background-image: url("images/backgroundlogo.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-/* Styles the TikTok feed. */
 .tiktok-feed::before {
     /* Frosted background behind TikTok section */
     content: "";
@@ -445,6 +446,7 @@ body {
     backdrop-filter: blur(4px);
     pointer-events: none;
 }
+
 
 /* Styles the TikTok feed. */
 .tiktok-feed > * {
@@ -480,9 +482,77 @@ body {
 .before-after {
     background: linear-gradient(rgba(255, 255, 255, .55), rgba(255, 255, 255, .55)),
                 url("images/splash1.jpg") center/cover no-repeat;
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
     text-align: center;
     position: relative;
+}
+
+/* ----- Before & After: pressure-wash text reveal ----- */
+.wash-line {
+    position: relative;
+    display: inline-block;
+    margin-top: -60;
+}
+
+.wash-clean {
+    /* The "clean" text, sits underneath */
+    color: var(--champagne-gold);
+    font-size: 1.6rem; /* was inheriting the paragraph's base size */
+    font-weight: 700;
+}
+
+.wash-dirty {
+    /* The "grimy" text layer, sits on top and gets wiped away */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #6b6455;
+    font-size: 1.6rem; /* must match .wash-clean exactly, or the wipe misaligns */
+    font-weight: 700;
+    white-space: nowrap;
+    clip-path: inset(0 0% 0 0);
+}
+
+/* Squeegee highlight line that travels with the wipe */
+.wash-dirty::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    right: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--bright-sky-blue), transparent);
+    box-shadow: 0 0 8px var(--bright-sky-blue);
+    opacity: 0;
+}
+
+/* Triggered class, added by JS when the section scrolls into view */
+.wash-line.wash-active .wash-dirty {
+    animation: squeegeeWipe 1.6s ease-in-out forwards;
+}
+.wash-line.wash-active .wash-dirty::after {
+    animation: squeegeeGlow 1.6s ease-in-out forwards;
+}
+
+@keyframes squeegeeWipe {
+    0% {
+        clip-path: inset(0 0% 0 0);
+    }
+    100% {
+        clip-path: inset(0 100% 0 0);
+    }
+}
+
+@keyframes squeegeeGlow {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /* ----- Before & After: wave curves at top of section ----- */
@@ -774,6 +844,11 @@ footer {
 /* Styles the About section. */
     .about-section {
         padding: 2rem 1.4rem;
+    }
+    /* ----- Before & After: pressure-wash text, scaled for mobile ----- */
+    .wash-clean,
+    .wash-dirty {
+        font-size: 1.1rem; /* was 1.6rem on desktop */
     }
 /* Styles the About section. */
     .about-section h2 {

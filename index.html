@@ -191,7 +191,10 @@
 
         <div class="before-after-content">
             <!--<h2>✦ Before & After ✦</h2>-->
-            <p>We don’t cut corners — we clean them.</p>
+            <p class="wash-line">
+    <span class="wash-clean" aria-hidden="true">We don't cut corners — we clean them.</span>
+    <span class="wash-dirty">We don't cut corners — we clean them.</span>
+</p>
 
             <div class="ba-container">
 
@@ -281,6 +284,19 @@
     <footer>
         <p> Go Gleam – Exterior Cleaning Specialists</p>
     </footer>
-
+<script>
+    const washLine = document.querySelector('.wash-line');
+    if (washLine) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    washLine.classList.add('wash-active');
+                    observer.unobserve(entry.target); // only play once
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(washLine);
+    }
+</script>
 </body>
 </html>

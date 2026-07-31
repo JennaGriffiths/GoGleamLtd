@@ -1,0 +1,1000 @@
+/* ============================
+   GLOBAL VARIABLES
+   ============================ */
+/* Defines reusable CSS variables (colors, shadows). */
+:root {
+    --deep-navy-blue: #07152d;
+    --mid-blue: #1f5f94;
+    --bright-sky-blue: #67b8ff;
+
+    --champagne-gold: #f6edd2;
+    --rich-gold: #caa24c;
+    --dark-gold: #8b6822;
+
+    --off-white: #faf9f6;
+    --warm-white: #f3f0e8;
+
+    --soft-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================
+   BASE
+   ============================ */
+/* Styles the whole page. */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--off-white);
+    color: #444;
+}
+
+/* ============================
+   TOP BAR
+   (first element on the page)
+   ============================ */
+/* Styles the top bar. */
+.top-bar {
+    position: relative;
+    z-index: 9999;
+    width: 100%;
+    background: rgba(7, 21, 45, 0.80);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+/* Styles the top bar. */
+.top-bar-inner {
+    max-width: 1200px;
+    min-height: 36px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Styles the top bar. */
+.top-bar-phone {
+    color: var(--warm-white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+}
+
+/* Styles the top bar. */
+.top-bar-phone span {
+    color: var(--rich-gold);
+}
+
+/* Styles the top bar. */
+.top-bar-message {
+    color: var(--champagne-gold);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Styles the top bar. */
+.top-bar-social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Styles the top bar. */
+.top-bar-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: var(--warm-white);
+    border-radius: 50%;
+    transition: all .25s ease;
+}
+
+/* Styles the top bar. */
+.top-bar-social a:hover {
+    color: var(--rich-gold);
+    background: rgba(202, 162, 76, .12);
+    transform: translateY(-2px);
+}
+
+/* ============================
+   HERO
+   (header: logo image, wave curves, corner ribbon banner)
+   ============================ */
+/* Styles the hero section. */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden; /* keeps the wave graphic clipped to the hero box, no spillover */
+}
+
+/* Styles the hero section. */
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 0px;
+    filter: brightness(0.85) contrast(1.1);
+}
+
+/* ----- Hero: wave curves at bottom of hero ----- */
+.custom-shape-divider-bottom-1783816300,
+.custom-shape-divider-bottom-1783792806 {
+    position: absolute;
+    bottom: 0; /* flush with hero bottom edge — closes the white gap above the next section */
+    left: 0;
+    width: 100%;
+    line-height: 0; /* svg is inline by default; this kills the baseline gap under it */
+}
+
+.custom-shape-divider-bottom-1783816300 svg,
+/* Styles decorative wave dividers. */
+.custom-shape-divider-bottom-1783792806 svg {
+    display: block; /* removes the inline baseline gap that was leaving a white strip */
+    width: calc(100% + 1.3px);
+    transform: rotateY(180deg);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-bottom-1783816300 svg {
+    height: clamp(180px, 33vw, 401px);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-bottom-1783792806 svg {
+    height: clamp(140px, 27vw, 320px);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-bottom-1783816300 .shape-fill {
+    fill: var(--off-white);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-bottom-1783792806 .shape-fill {
+    fill: var(--deep-navy-blue);
+}
+
+/* ----- Hero: diagonal corner ribbon banner across the top-right corner, matching the ----- */
+/* ----- before/after corner banners' gold gradient ----- */
+/* Styles the hero corner ribbon banner. */
+.hero-corner-banner {
+    position: absolute;
+    top: 20px;
+    right: -150px;
+    width: 640px;
+    padding: 8px 0px 8px 100px; /* extra right padding shifts the centered text left */
+    text-align: center;
+    transform: rotate(18deg);
+    transform-origin: center;
+    z-index: 999;
+
+    font-size: 1rem; /* scaled down to match the thinner band */
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+
+    background: linear-gradient(
+        135deg,
+        var(--champagne-gold),
+        #f2d98a 20%,
+        #e8c86a 40%,
+        var(--rich-gold) 60%,
+        #b88a2a 80%,
+        var(--dark-gold)
+    );
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================
+   ABOUT GO GLEAM — NAVY THEME
+   ============================ */
+/* Styles the About section. */
+.about-section {
+    padding: 3rem 2rem;
+    background: var(--deep-navy-blue);
+    color: var(--off-white);
+    position: relative;
+    border-bottom: 1px solid rgba(246, 237, 210, .18);
+
+    /* subtle fade-in animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aboutFadeUp 0.7s ease forwards;
+}
+
+/* Styles the About section. */
+.about-section p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin: 0 0 1.4rem 0;
+    color: var(--warm-white);
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Animates the About section. */
+@keyframes aboutFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----- About section: two-column layout (services box + copy) ----- */
+/* Wraps the services box and the about copy side by side. */
+.about-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    max-width: 1500px;
+    margin: 0 auto 0 0;
+    position: relative; /* anchor point for the absolutely-positioned services box */
+}
+
+/* Left-hand services box, styled like the "Why Choose Go Gleam" box further down the page. */
+/* Wide enough that labels stay on one line; height stays tight to content. */
+/* Positioned absolutely so its hover-expansion grows in place instead of pushing */
+/* .about-flex (and everything below it on the page) downward. */
+.about-services-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 340px;
+    box-sizing: border-box; /* keeps padding inside the 340px so it doesn't overlap .about-text */
+    padding: 1.2rem 1.6rem;
+    text-align: left;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top left, rgba(103, 184, 255, .14), transparent 45%),
+        linear-gradient(135deg, rgba(31, 95, 148, .3), rgba(7, 21, 45, .85));
+
+    border-radius: 18px;
+    border: 1px solid rgba(246, 237, 210, .18);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .08);
+
+    color: var(--off-white);
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.about-services-box:hover {
+    border-color: rgba(202, 162, 76, .45);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .08), 0 0 24px rgba(202, 162, 76, .12);
+}
+
+/* Shine line, matching the why-box treatment. */
+.about-services-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
+}
+
+/* Faint oversized watermark icon in the corner for extra polish. */
+.about-services-box::after {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    bottom: -18px;
+    right: -6px;
+    font-size: 6rem;
+    color: rgba(246, 237, 210, .05);
+    pointer-events: none;
+    line-height: 1;
+}
+
+.about-services-box ul {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.88rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.about-services-box li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid rgba(246, 237, 210, .12);
+    letter-spacing: 0.2px;
+    white-space: normal;
+    cursor: pointer;
+    outline: none;
+    transition: transform .25s ease, color .25s ease;
+}
+
+.about-services-box li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.about-services-box li:hover,
+.about-services-box li:focus {
+    transform: translateX(5px);
+    color: var(--champagne-gold);
+}
+
+.about-services-box li i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 0.55rem;
+    color: var(--deep-navy-blue);
+    background: linear-gradient(135deg, var(--champagne-gold), #f2d98a 30%, var(--rich-gold));
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    margin-top: 1px;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.about-services-box li:hover i,
+.about-services-box li:focus i {
+    transform: scale(1.12);
+    box-shadow: 0 0 12px rgba(202, 162, 76, .45);
+}
+
+/* Holds the service title and its SEO-friendly hover description. */
+.service-item-content {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+}
+
+.service-name {
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.service-description {
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: rgba(250, 249, 246, .82);
+    font-size: 0.76rem;
+    line-height: 1.45;
+    transform: translateY(-4px);
+    transition:
+        max-height .35s ease,
+        margin-top .35s ease,
+        opacity .25s ease,
+        transform .35s ease;
+}
+
+/* Reveal with a mouse, keyboard, or tap focus. */
+.about-services-box li:hover .service-description,
+.about-services-box li:focus .service-description {
+    max-height: 5rem;
+    margin-top: 0.35rem;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-services-box li:focus-visible {
+    border-radius: 6px;
+    box-shadow: 0 0 0 2px rgba(246, 237, 210, .55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-services-box li,
+    .about-services-box li i,
+    .service-description {
+        transition: none;
+    }
+}
+
+/* Right-hand about copy — shifted toward the right of the space the services box doesn't cover. */
+/* Uses a fixed margin-left (box width + gap) instead of flex-basis, since the box is now */
+/* absolutely positioned and no longer takes up space in the flex layout itself. */
+.about-text {
+    flex: 1;
+    min-width: 0;
+    max-width: 1000px;
+    margin-left: calc(340px + 3rem);
+    margin-top: 1.5rem;
+}
+
+.about-text p {
+    text-align: left;
+}
+
+.about-text h1 {
+    text-align: center;
+    margin: -0.5rem 0 1.4rem 0; /* negative top margin nudges it up slightly */
+}
+
+/* ============================
+   TIKTOK FEED — GO GLEAM THEME
+   ============================ */
+/* Styles the TikTok feed. */
+.tiktok-feed {
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+
+    background:
+        radial-gradient(circle at top left, rgba(103, 184, 255, .10), transparent 45%),
+        linear-gradient(135deg, rgba(31, 95, 148, .28), rgba(7, 21, 45, .92)); /* signature navy gradient */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.tiktok-feed::before {
+    /* Frosted background behind TikTok section */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.06); /* very subtle frost */
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-feed::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-feed > * {
+    /* Ensure content stays above the frost */
+    position: relative;
+    z-index: 1;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles the TikTok feed. */
+.tiktok-wrapper blockquote {
+    /* TikTok embed container styled like the service cards */
+    background: rgba(255, 255, 255, 0.12); /* Frosted glass */
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: var(--soft-shadow);
+    border: 1px solid rgba(246, 237, 210, 0.25); /* Gold tint */
+}
+
+/* ============================
+   BEFORE & AFTER
+   (also hosts the "Why Choose Go Gleam" box, which overlaps into Contact)
+   ============================ */
+/* Styles the before & after section. */
+.before-after {
+    background: linear-gradient(rgba(255, 255, 255, .55), rgba(255, 255, 255, .55)),
+                url("images/splash1.jpg") center/cover no-repeat;
+    padding: 2rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+/* ----- Before & After: wave curves at top of section ----- */
+.custom-shape-divider-top-1783849557,
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783816684 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783849557 svg {
+    width: calc(100% + 1.3px);
+    height: clamp(180px, 34vw, 407px);
+    transform: rotateY(180deg);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783849557 .shape-fill {
+    fill: var(--off-white);
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783816684 svg {
+    width: calc(100% + 1.3px);
+    height: clamp(180px, 33vw, 401px);
+    transform: rotateY(180deg);
+    z-index: -1;
+}
+
+/* Styles decorative wave dividers. */
+.custom-shape-divider-top-1783816684 .shape-fill {
+    fill: var(--deep-navy-blue);
+}
+
+/* ----- Before & After: heading/text ----- */
+/* Styles the before & after section. */
+.before-after p {
+    color: var(--champagne-gold);
+    position: relative;
+    z-index: 2;
+}
+
+/* ----- Before & After: pressure-wash text reveal ----- */
+.wash-line {
+    position: relative;
+    display: inline-block;
+}
+
+.wash-clean {
+    /* The "clean" text, sits underneath */
+    color: var(--champagne-gold);
+    font-size: 1.6rem; /* was inheriting the paragraph's base size */
+    font-weight: 700;
+}
+
+.wash-dirty {
+    /* The "grimy" text layer, sits on top and gets wiped away */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #6b6455;
+    font-size: 1.6rem; /* must match .wash-clean exactly, or the wipe misaligns */
+    font-weight: 700;
+    white-space: nowrap;
+    clip-path: inset(0 0% 0 0);
+}
+
+/* Squeegee highlight line that travels with the wipe */
+.wash-dirty::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    right: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--bright-sky-blue), transparent);
+    box-shadow: 0 0 8px var(--bright-sky-blue);
+    opacity: 0;
+}
+
+/* Triggered class, added by JS when the section scrolls into view */
+.wash-line.wash-active .wash-dirty {
+    animation: squeegeeWipe 1.6s ease-in-out forwards;
+}
+.wash-line.wash-active .wash-dirty::after {
+    animation: squeegeeGlow 1.6s ease-in-out forwards;
+}
+
+@keyframes squeegeeWipe {
+    0% {
+        clip-path: inset(0 0% 0 0);
+    }
+    100% {
+        clip-path: inset(0 100% 0 0);
+    }
+}
+
+@keyframes squeegeeGlow {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ----- Before & After: image pair layout ----- */
+/* Styles before & after layout. */
+.ba-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+    justify-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Styles paired before/after images. */
+.box-pair {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    width: auto;
+    height: 400px; /* forces equal height */
+    object-fit: cover;
+    max-width: 100%;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: var(--soft-shadow);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Styles paired before/after images. */
+.box-pair img {
+    max-width: 49%;
+    border-radius: 4px;
+    box-shadow: var(--soft-shadow);
+}
+
+/* ----- Before & After: small corner banners on each image ----- */
+/* Wraps each before/after image so the corner banner can be positioned over it. */
+.ba-img-wrap {
+    position: relative;
+    max-width: 49%;
+    display: flex;
+    overflow: hidden; /* clips the ribbon corners to the image's rounded edges */
+    border-radius: 4px;
+    box-shadow: var(--soft-shadow);
+}
+
+/* The images inside the wrapper no longer need their own shadow/radius — the wrapper handles it. */
+.ba-img-wrap img {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+}
+
+/* Small diagonal ribbon banner running from the left edge up to the top edge of the image. */
+.ba-corner-banner {
+    position: absolute;
+    top: 14px;
+    left: -32px;
+    width: 110px;
+    padding: 3px 0;
+    text-align: center;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    z-index: 3;
+
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+
+    background: linear-gradient(
+        135deg,
+        var(--champagne-gold),
+        #f2d98a 20%,
+        #e8c86a 40%,
+        var(--rich-gold) 60%,
+        #b88a2a 80%,
+        var(--dark-gold)
+    );
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional dark variant for the "After" banner, for a bit of visual contrast against the gold "Before" banner. */
+.ba-corner-banner.after-banner {
+    background: linear-gradient(135deg, var(--mid-blue), var(--deep-navy-blue));
+    color: var(--champagne-gold);
+}
+
+/* Styles before & after layout. */
+.ba-set:last-child {
+    grid-column: 1 / -1; /* forces it to span full width */
+    justify-self: center;
+}
+
+/* ----- "Why Choose Go Gleam" box — anchored to the bottom of this section, overlapping into Contact ----- */
+.why-box {
+    position: absolute;
+    bottom: -80px; /* hangs off the bottom edge, overlapping before/after and contact */
+    left: 50px;    /* same x position as the original hero placement */
+    transform: rotate(-10deg);
+    z-index: 999;
+
+    width: 260px; /* half-width */
+    padding: 1.4rem 1.6rem;
+    text-align: left;
+
+    /* same background style as the about-services-box */
+    background:
+        radial-gradient(circle at top left, rgba(103, 184, 255, .12), transparent 45%),
+        linear-gradient(135deg, rgba(31, 95, 148, .28), rgba(7, 21, 45, .82));
+
+    border-radius: 16px;
+
+    /* same border + frosted effect */
+    border: 1px solid rgba(246, 237, 210, .18);
+    backdrop-filter: blur(12px);
+
+    /* same shadow */
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .08);
+
+    color: var(--off-white);
+}
+
+/* Shine line (same as service cards) */
+.why-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(246, 237, 210, .8), transparent);
+}
+
+/* Styles the Why Choose Go Gleam box. */
+.why-box h3 {
+    margin: 0 0 0.8rem 0;
+    font-size: 1.2rem;
+    color: var(--champagne-gold);
+    letter-spacing: 0.5px;
+}
+
+/* Styles the Why Choose Go Gleam box. */
+.why-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* ============================
+   CONTACT
+   ============================ */
+/* Styles the contact section. */
+.contact {
+    padding: 1rem 2rem;
+    text-align: center;
+    background: var(--deep-navy-blue);
+    color: var(--champagne-gold);
+}
+
+/* Styles the contact section. */
+.contact a {
+    color: var(--champagne-gold);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Styles the contact section. */
+.contact a:hover {
+    color: var(--rich-gold);
+    text-decoration: underline;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+/* Styles the footer. */
+footer {
+    background: var(--deep-navy-blue);
+    color: var(--champagne-gold);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   MOBILE OPTIMIZATION (MERGED)
+   All mobile / responsive overrides live in this block,
+   in the same top-to-bottom page order as above.
+   ============================================================ */
+/* Mobile responsive layout changes. */
+@media (max-width: 768px) {
+
+    /* ----- Top Bar ----- */
+    /* Styles the top bar. */
+    .top-bar-inner {
+        grid-template-columns: 1fr auto;
+        padding: 0 18px;
+    }
+    /* Styles the top bar. */
+    .top-bar-message {
+        display: none;
+    }
+    /* Styles the top bar. */
+    .top-bar-phone {
+        font-size: 12px;
+    }
+
+    /* ----- Hero — flush under top bar ----- */
+    .hero {
+        height: 160px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* fills hero fully */
+        object-position: center 0px; /* move image upward */
+        background: var(--deep-navy-blue);
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+
+    /* ----- Hero Corner Banner — shallower angle on mobile so the full ribbon fits inside the ----- */
+    /* ----- 160px hero without .hero's overflow:hidden clipping off part of the text ----- */
+    .hero-corner-banner {
+        top: 34px;
+        right: -58px;
+        width: 300px;
+        padding: 4px 0;
+        font-size: 0.68rem;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        transform: rotate(25deg);
+    }
+
+    /* ----- About ----- */
+    /* Styles the About section. */
+    .about-section {
+        padding: 2rem 1.4rem;
+    }
+    /* Styles the About section. */
+    .about-section p {
+        font-size: 1rem;
+    }
+
+    /* About: stack the services box above the copy on mobile. */
+    /* Back to a normal in-flow, static-positioned block since desktop's absolute */
+    /* positioning is only needed for the side-by-side layout. */
+    .about-flex {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .about-services-box {
+        position: static;
+        flex: 0 0 auto;
+        max-width: 260px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem 1.2rem;
+    }
+    .about-services-box ul {
+        font-size: 0.8rem;
+        gap: 0.4rem;
+    }
+    .about-services-box li {
+        gap: 8px;
+        padding-bottom: 0.4rem;
+        white-space: normal;
+    }
+    .about-services-box li i {
+        flex: 0 0 15px;
+        width: 15px;
+        height: 15px;
+        font-size: 0.48rem;
+    }
+    /* Undo the desktop offset now that the box is back in normal flow above the copy. */
+    .about-text {
+        margin-left: 0;
+    }
+    .about-text h1 {
+        font-size: 1.5rem;
+    }
+
+    /* ----- Before & After ----- */
+    /* Before & After: pressure-wash text, scaled for mobile */
+    .wash-clean,
+    .wash-dirty {
+        font-size: 1.1rem; /* was 1.6rem on desktop */
+    }
+
+    /* Before & After — side-by-side images */
+    /* Styles before & after layout. */
+    .ba-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    /* Styles paired before/after images. */
+    .box-pair {
+        width: 100%;
+        max-width: 100%;
+        height: auto; /* was inheriting the desktop 400px, leaving a huge frosted gap */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px; /* matches desktop frame thickness */
+        gap: 10px;
+        box-sizing: border-box;
+    }
+    /* Styles paired before/after images. */
+    .box-pair img {
+        width: 48%;
+        height: auto;
+        border-radius: 4px; /* matches desktop */
+        box-shadow: var(--soft-shadow); /* matches desktop */
+    }
+    /* Styles paired before/after images. */
+    .ba-img-wrap {
+        width: 48%;
+        max-width: 48%;
+    }
+    /* Styles paired before/after images. */
+    .ba-img-wrap img {
+        width: 100%;
+        height: auto;
+    }
+    /* Small corner banners, scaled down for mobile. */
+    .ba-corner-banner {
+        top: 10px;
+        left: -28px;
+        width: 90px;
+        font-size: 0.55rem;
+        padding: 2px 0;
+    }
+
+    /* Why Choose box — scaled down, hangs off the bottom of the before/after section on mobile too */
+    .why-box {
+        display: block;
+        bottom: -35px; /* overlaps into contact, same as desktop treatment */
+        left: 10px;
+        width: 90px;
+        padding: 0.5rem 0.6rem;
+        border-radius: 10px;
+        z-index: 999;
+    }
+    .why-box h3 {
+        font-size: 0.45rem;
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.2px;
+    }
+    .why-box ul {
+        font-size: 0.45rem;
+        line-height: 1.25;
+    }
+
+    /* ----- Contact ----- */
+    /* Styles the contact section. */
+    .contact {
+        padding: 2rem 1rem;
+    }
+
+    /* ----- Footer ----- */
+    /* Styles the footer. */
+    footer {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+}
